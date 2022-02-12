@@ -1,0 +1,54 @@
+<div class="container">
+  <span *ngIf="error; else forecastBlock" class="error">
+    {{ error | uppercase }}! Please, enter the correct city to get the forecast.
+  </span>
+
+  <ng-template #forecastBlock>
+    <div *ngIf="forecast; else alternativeBlock" class="forecast">
+      <span class="forecast__name">{{ forecast.name }}</span>
+      <div class="forecast__main">
+        <img src="{{ forecast.weather[0].icon }}" alt="" />
+        <span class="forecast__main--status">{{
+          forecast.weather[0].main
+        }}</span>
+      </div>
+      <div class="forecast__description">
+        Description:
+        <span>
+          {{ forecast.weather[0].description | uppercase }}
+        </span>
+      </div>
+      <span class="forecast__temp"
+        >{{ forecast.main.temp | temp }},&#8451;</span
+      >
+      <div class="forecast__temp--range">
+        <span>
+          min: {{ forecast.main.temp_min | temp }},&#8451; | max:
+          {{ forecast.main.temp_max | temp }},&#8451;
+        </span>
+      </div>
+      <div class="forecast__humidity">
+        Humidity:
+        <span> {{ forecast.main.humidity }},% </span>
+      </div>
+      <div class="forecast__pressure">
+        Pressure:
+        <span> {{ forecast.main.pressure }},hPa </span>
+      </div>
+      <div class="forecast__clouds">
+        Clouds:
+        <span> {{ forecast.clouds.all }},% </span>
+      </div>
+      <div class="forecast__wind">
+        <span>
+          Wind: {{ forecast.wind.deg }},&deg; | {{ forecast.wind.speed }},m/s
+        </span>
+      </div>
+    </div>
+
+    <ng-template #alternativeBlock>
+      <span> Enter the necessary city to find a clear forecast! </span>
+    </ng-template>
+  </ng-template>
+</div>
+

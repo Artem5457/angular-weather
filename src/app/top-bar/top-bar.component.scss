@@ -1,0 +1,107 @@
+@import "../utils/mixins.scss";
+
+.top-bar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(127, 221, 228);
+  padding: 15px 0;
+
+  @include onTablet {
+    flex-direction: row;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+
+    @include onTablet {
+      padding-left: 10px;
+    }
+
+    &--img {
+      width: 45px;
+
+      @include onDesktop {
+        padding-left: 20px;
+      }
+    }
+
+    &--name {
+      padding: 0;
+      font-family: 'Pridi', serif;
+      font-size: 32px;
+      padding-left: 5px;
+      margin-block-start: 0;
+      margin-block-end: 0;
+    }
+  }
+
+  &__search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 3;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: flex-end;
+      padding-right: 15px;
+    }
+
+    @include onNoteBook {
+      justify-content: flex-start;
+      margin-left: 70px;
+    }
+
+    @include onDesktop {
+      margin-left: 85px;
+    }
+
+    &--input {
+      font-size: 22px;
+      font-family: 'Source Code Pro', monospace;
+      width: 280px;
+      height: 26px;
+      outline: none;
+      border: 2px solid rgb(245, 231, 41);
+      border-radius: 15px;
+      padding: 5px;
+      padding-left: 10px;
+      background-color: yellow;
+      margin-bottom: 10px;
+
+      @include onTablet {
+        margin-bottom: 0;
+        margin-right: 5px;
+      }
+
+      @include onNoteBook {
+        width: 350px;
+      }
+
+      @include onLargeScreen {
+        width: 650px;
+      }
+    }
+  }
+}
+
+button {
+  height: 40px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 18px;
+  border-radius: 15px;
+  background-color: rgb(0, 245, 0);
+  border: 2px solid rgb(31, 201, 31);
+  transition-duration: 0.3s;
+
+  &:hover {
+    background-color: rgba(70, 171, 230, 0.945);
+    border: 2px solid rgb(255, 255, 255);
+    transform: scale(1.1);
+  }
+}

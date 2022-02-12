@@ -1,0 +1,29 @@
+<div class="top-bar">
+  <div class="top-bar__logo">
+    <img
+      src="../../assets/clear-forecast.png"
+      alt="Logo"
+      class="top-bar__logo--img"
+    />
+    <p class="top-bar__logo--name">ClearWeather</p>
+  </div>
+
+  <div class="top-bar__search">
+    <input
+      type="text"
+      class="top-bar__search--input"
+      placeholder="Enter..."
+      [(ngModel)]="city"
+      (keyup)="onKeyUp($event)"
+    />
+    <button
+      type="button"
+      class="tob-bar__search--button"
+      (click)="findForecast()"
+      [disabled]="!city || city.trim().length === 0"
+    >
+      Forecast
+    </button>
+  </div>
+</div>
+
